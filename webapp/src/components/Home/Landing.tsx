@@ -40,7 +40,7 @@ export default function Landing() {
                     on Companion
                 </h2>
                 <p>
-                    Companion contributes to the happiness by (1) allowing users to interact with anyone they want, (2) providing an easy access to an AI therapist, and (3) promoting the understanding of the minority via conversations.
+                    Companion contributes to the happiness by (1) allowing users to interact with anyone they want, (2) providing an easy access to an AI therapist, and (3) promoting the understanding of the minority via virtual conversations.
                 </p>
             </div>
         </div>
