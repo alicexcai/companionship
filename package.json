@@ -1,0 +1,39 @@
+{
+  "name": "companionship",
+  "version": "1.0.0",
+  "description": "a platform for people to talk to anyone, anytime, anywhere via AI-generated replicas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "nodemon app.js --ignore 'webapp/**'",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix webapp\"",
+    "heroku-postbuild": "cd webapp && npm install --only=dev && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alicexcai/companionship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.16",
+    "request": "^2.88.2",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "bugs": {
+    "url": "https://github.com/alicexcai/companionship/issues"
+  },
+  "homepage": "https://github.com/alicexcai/companionship#readme"
+}
