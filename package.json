@@ -2,7 +2,7 @@
   "name": "companionship",
   "version": "1.0.0",
   "description": "a platform for people to talk to anyone, anytime, anywhere via AI-generated replicas",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "nodemon app.js --ignore 'webapp/**'",
