@@ -1,8 +1,3 @@
-import React from "react";
-import moment from "moment";
-import "./TypingIndicator.css";
-import "../Message/Message.css";
-
 export default function TypingIndicator() {
   return (
     <div className="message end">

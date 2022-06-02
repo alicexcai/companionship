@@ -1,4 +1,4 @@
-import { Message } from "../components/MessageList";
+import { Message } from "../components/Messenger";
 import axios from "axios";
 import _ from 'lodash';
 const GPTService = {

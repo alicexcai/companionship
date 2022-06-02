@@ -1,5 +1,4 @@
 import React, { FormEvent, useState } from 'react';
-import './Compose.css';
 
 type Props = {
   addMessage: Function;

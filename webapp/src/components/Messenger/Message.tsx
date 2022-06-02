@@ -1,6 +1,4 @@
-import React from 'react';
 import moment from 'moment';
-import './Message.css';
 
 export default function Message(props: any) {
     const {

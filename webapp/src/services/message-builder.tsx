@@ -1,7 +1,7 @@
 import moment from "moment";
 import React from "react";
-import MessageComponent from "../components/Message";
-import { Message } from "../components/MessageList";
+import MessageComponent from "../components/Messenger/Message";
+import { Message } from "../components/Messenger";
 
 const MessageBuilderService = {
   getMessages(messages: Message[], myUserId: string) {
