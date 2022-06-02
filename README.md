@@ -1,6 +1,9 @@
 # companionship
 a platform for people to talk to anyone, anytime, anywhere via AI-generated replicas
 
+# CHANGELOG
+* Alice - added conversation type options
+
 # components
 * frontend web app
 * example fine-tuned models
@@ -8,8 +11,9 @@ a platform for people to talk to anyone, anytime, anywhere via AI-generated repl
 * text-to-speech / speech-to-text
 * sensor integration
 
-# features
+# conversation types
 * theraputic conversation
 * intellectual conversation
+* reflective conversation
 * problem solving conversation
 * open ended
