@@ -12,7 +12,7 @@ import TypingIndicator from "../TypingIndicator";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-const MY_USER_ID = "Patient";
+const MY_USER_ID = "Me";
 
 export interface Message {
   author: string;
@@ -78,9 +78,9 @@ export default function MessageList() {
     setMessages((previous) => [...previous, newMessage]);
     setLoading(true);
     const withMine = [...messages, newMessage];
-    const response = await GPTService.getAIResponse(withMine);
+    const response = await GPTService.getAIResponse(withMine, option);
     const responseMessage = {
-      author: "Therapist",
+      author: speakerDict.get(option)!.speaker,
       message: response,
       timestamp: new Date().getTime(),
     };

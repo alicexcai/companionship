@@ -2,9 +2,9 @@ import { Message } from "../components/MessageList";
 import axios from "axios";
 import _ from 'lodash';
 const GPTService = {
-    async getAIResponse(messages: Message[]): Promise<string> {
-        const prompt = getPrompt(messages);
-        const result = await getCompletion(prompt);
+    async getAIResponse(messages: Message[], option: string): Promise<string> {
+        const prompt = getPrompt(messages, option);
+        const result = await getCompletion(prompt, option);
         return result;
     }
 };
@@ -28,11 +28,19 @@ function trimLines(additional: number, lines: string[]): string[] {
   return trimLinesHelper(additional, lines, maxPromptLength);
 }
 
-function getPrompt(messages: Message[]): string {
-  const start = `The following is a conversation with a therapist. The therapist is helpful, creative, clever, and very friendly.
+type ConversationPrompt = { speaker: string, prompt: string };
+let speakerDict = new Map<string, ConversationPrompt>();
+speakerDict.set("Intellectual Conversation", { speaker: "Professor:", prompt: "The following is a conversation with a professor. The professor is intelligent, inquisitive, and wise.\n" });
+speakerDict.set("Theraputic Conversation", { speaker: "Therapist:", prompt: "The following is a conversation with a therapist. The therapist is kind, compassionate, and helpful.\n" });
+speakerDict.set("Reflective Conversation", { speaker: "Self:", prompt: "The following is a conversation with yourself. You are truthful, and you are trying to reflect on your life.\n" });
+speakerDict.set("Problem-solving Conversation", { speaker: "Counselor:", prompt: "The following is a conversation with a counselor. The counselor is helpful and tries to help you solve a problem.\n" });
+speakerDict.set("Open-ended Conversation", { speaker: "Friend:", prompt: "The following is a conversation with a friend. The friend is nice, playful, and casual.\n" });
 
-`;
-const additionalPrompt = "Therapist:";
+
+function getPrompt(messages: Message[], option: string): string {
+
+  const start = speakerDict.get(option)!.prompt;
+  const additionalPrompt = speakerDict.get(option)!.speaker;
 
   const lines = messages.map((m) => `${m.author}: ${m.message}\n`);
   const trimmed = trimLines(start.length + additionalPrompt.length, lines);
@@ -47,13 +55,13 @@ const RESPONSE_TOKEN_MAXIMUM = 300;
 // your app onto the internet, you should route requests through your own
 // backend server to avoid exposing your OpenAI API key in your client
 // side code.
-async function getCompletion(prompt: string): Promise<string> {
+async function getCompletion(prompt: string, option: string): Promise<string> {
   const data = {
     prompt,
     max_tokens: RESPONSE_TOKEN_MAXIMUM,
     temperature: 0.9,
     n: 1,
-    stop: ['AI:', `Me:`],
+    stop: [speakerDict.get(option)!.speaker, `Me:`],
   };
   const result = await axios({
     method: "post",
