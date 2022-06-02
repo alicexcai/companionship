@@ -27,7 +27,7 @@ export default function Home({setOption, options}: any) {
                 <section>
                     <div className="mb-4">
                         <h4 className="mb-3">
-                            Who would you like to talk to?
+                        What kind of conversation do you want to have?
                         </h4>
                         <RadioButtonGroup
                             onChange={handleChange}
