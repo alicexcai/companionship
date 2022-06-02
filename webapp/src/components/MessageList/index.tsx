@@ -19,18 +19,8 @@ export interface Message {
   message: string;
   timestamp: number;
 }
-export default function MessageList() {
 
-  const options = [
-    'Intellectual Conversation',
-    'Theraputic Conversation',
-    'Reflective Conversation',
-    'Problem-solving Conversation',
-    'Open-ended Conversation'
-  ];
-  const defaultOption = options[0];
-  const [option, setOption] = useState(defaultOption);
-
+export default function MessageList({option, options, setOption }: any) {
   type Conversation = { speaker: string, message: string };
   let speakerDict = new Map<string, Conversation>();
   speakerDict.set("Intellectual Conversation", { speaker: "Professor", message: "Hello, I am a professor. Let's talk about something interesting. What is the most fascinating concept you've learned about lately?" });
@@ -93,7 +83,7 @@ export default function MessageList() {
       <Toolbar title="Chat with GPT3" />
       {/* <Dropdown title="Select conversatio type" /> */}
       <h4>What kind of conversation do you want to have?</h4>
-      <Dropdown options={options} onChange={(e) => handleOptionChange(e.value)} value={defaultOption} placeholder="Select conversation type" />
+      <Dropdown options={options} onChange={(e) => handleOptionChange(e.value)} value={option} placeholder="Select conversation type" />
 
       <div className="message-list-container">{MessageBuilderService.getMessages(messages, MY_USER_ID)}
       {loading && <TypingIndicator />}

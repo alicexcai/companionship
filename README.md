@@ -17,3 +17,6 @@ a platform for people to talk to anyone, anytime, anywhere via AI-generated repl
 * reflective conversation
 * problem solving conversation
 * open ended
+
+Photo by Priscilla Du Preez on Unsplash
+
