@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 import Message from "./Messenger/Message";
 import Compose from "./Messenger/Compose";
-import Toolbar from "./Messenger/Toolbar";
 import TypingIndicator from "./Messenger/TypingIndicator";
 
 import GPTService from "../services/gpt";
@@ -82,7 +81,6 @@ export default function Messenger({option, options, setOption }: any) {
       <div className="messenger">
         <div className="scrollable content">
         <div className="message-list">
-            <Toolbar title="Chat with GPT3" />
             {/* <Dropdown title="Select conversatio type" /> */}
             <h4>What kind of conversation do you want to have?</h4>
             <Dropdown options={options} onChange={(e) => handleOptionChange(e.value)} value={option} placeholder="Select conversation type" />
