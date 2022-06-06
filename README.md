@@ -1,8 +1,6 @@
 # companionship
 a platform for people to talk to anyone, anytime, anywhere via AI-generated replicas
-
-# CHANGELOG
-* Alice - added conversation type options
+forked from [gpt3-chat](https://github.com/ZakMiller/gpt3-chat)
 
 # components
 * frontend web app
@@ -17,6 +15,7 @@ a platform for people to talk to anyone, anytime, anywhere via AI-generated repl
 * reflective conversation
 * problem solving conversation
 * open ended
+* superhero for creators and kids
 
 Photo by Priscilla Du Preez on Unsplash
 
